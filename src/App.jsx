@@ -7,6 +7,7 @@ import Register from './pages/Register'
 import WorkerDetail from './pages/WorkerDetail'
 import MyBookings from './pages/MyBookings'
 import WorkerDashboard from './pages/WorkerDashboard'
+import WorkerSetup from './pages/WorkerSetup'
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                 <Route path="/workers/:id" element={<WorkerDetail />} />
                 <Route path="/my-bookings" element={<MyBookings />} />
                 <Route path="/dashboard" element={<WorkerDashboard />} />
+                <Route path="/worker-setup" element={<WorkerSetup />} />
             </Routes>
         </BrowserRouter>
     )

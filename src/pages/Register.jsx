@@ -15,7 +15,16 @@ function Register() {
         setError("")
         try {
             await API.post("/register", form)
-            navigate("/login")
+            if (form.role === "worker") {
+                const res = await API.post("/login", { email: form.email, password: form.password })
+                localStorage.setItem("token", res.data.access_token)
+                localStorage.setItem("role", res.data.role)
+                localStorage.setItem("name", res.data.name)
+                localStorage.setItem("user_id", res.data.user_id)
+                navigate("/worker-setup")
+            } else {
+                navigate("/login")
+            }
         } catch (e) {
             setError(e.response?.data?.detail || "Registration failed!")
         }
