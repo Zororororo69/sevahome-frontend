@@ -8,14 +8,15 @@ function WorkerDetail() {
     const [loading, setLoading] = useState(true)
     const [booking, setBooking] = useState(false)
     const [bookingSuccess, setBookingSuccess] = useState(false)
+    const [selectedService, setSelectedService] = useState("1")
 
     const handleBook = async () => {
         setBooking(true)
         try {
             await API.post("/bookings", {
-                customer_id: 1,
+                customer_id: parseInt(localStorage.getItem("user_id")),
                 worker_id: parseInt(id),
-                service_id: 1,
+                service_id: parseInt(selectedService),
                 date: new Date().toISOString(),
                 notes: ""
             })
@@ -89,13 +90,26 @@ function WorkerDetail() {
                     </div>
                 </div>
 
+                <div className="mb-4">
+                    <label className="block text-sm font-medium mb-2">Select Service</label>
+                    <select
+                        className="w-full border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        value={selectedService}
+                        onChange={e => setSelectedService(e.target.value)}>
+                        <option value="1">🧹 Housekeeping</option>
+                        <option value="2">🍳 Cooking</option>
+                        <option value="3">👕 Laundry</option>
+                        <option value="4">👶 Childcare</option>
+                    </select>
+                </div>
+
                 {bookingSuccess && (
                     <div className="bg-green-50 text-green-700 px-4 py-3 rounded-lg mb-4 text-center">
                         ✅ Booking successful! Worker will contact you soon.
                     </div>
                 )}
 
-                <button 
+                <button
                     onClick={handleBook}
                     disabled={booking || !localStorage.getItem("token")}
                     className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 disabled:opacity-50">
