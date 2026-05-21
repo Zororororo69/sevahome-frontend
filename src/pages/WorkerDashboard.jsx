@@ -50,7 +50,8 @@ function WorkerDashboard() {
                                     {b.status}
                                 </span>
                             </div>
-                            <p className="text-gray-500 text-sm">📅 {new Date(b.date).toLocaleDateString()}</p>
+                            <p className="text-gray-500 text-sm">👤 {b.customer_name}</p>           
+                            <p className="text-gray-500 text-sm">📞 {b.customer_phone}</p>
                             {b.notes && <p className="text-gray-500 text-sm mt-1">📝 {b.notes}</p>}
                             {b.status === "pending" && (
                                 <div className="flex gap-3 mt-4">
