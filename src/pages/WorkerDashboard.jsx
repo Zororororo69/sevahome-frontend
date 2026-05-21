@@ -8,7 +8,7 @@ function WorkerDashboard() {
     useEffect(() => {
         const fetchBookings = async () => {
             try {
-                const res = await API.get("/workers/1/bookings")
+                const res = await API.get(`/workers/${localStorage.getItem("user_id")}/bookings`)
                 setBookings(res.data)
             } catch (e) {
                 console.error(e)
