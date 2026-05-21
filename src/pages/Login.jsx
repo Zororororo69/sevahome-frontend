@@ -17,6 +17,7 @@ function Login() {
             localStorage.setItem("token", res.data.access_token)
             localStorage.setItem("role", res.data.role)
             localStorage.setItem("name", res.data.name)
+            localStorage.setItem("user_id", res.data.user_id)
             navigate("/")
         } catch (e) {
             setError(e.response?.data?.detail || "Login failed!")
