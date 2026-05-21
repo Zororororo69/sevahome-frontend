@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 function WorkerCard({ worker }) {
     return (
         <div className="border rounded-xl p-4 shadow hover:shadow-lg">
@@ -10,7 +11,7 @@ function WorkerCard({ worker }) {
             <p className="text-gray-500 text-sm mb-3">⭐ Trust Score: {worker.trust_score}/100</p>
             <div className="flex justify-between items-center">
                 <span className="font-bold text-blue-600">Rs. {worker.hourly_rate}/hr</span>
-                <a href={`/workers/${worker.id}`} className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm">View</a>
+                <Link to={`/workers/${worker.id}`} className="bg-blue-600 text-white px-4 py-1 rounded-full text-sm">View</Link>
             </div>
         </div>
     )
