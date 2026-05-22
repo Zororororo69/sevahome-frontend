@@ -90,6 +90,11 @@ function WorkerDetail() {
                     </div>
                 </div>
 
+                <div className="mb-6">
+                    <h3 className="font-semibold mb-2">Contact</h3>
+                    <p className="text-gray-600">📞 {worker.phone || "Not provided"}</p>
+                </div>
+
                 <div className="mb-4">
                     <label className="block text-sm font-medium mb-2">Select Service</label>
                     <select

@@ -8,6 +8,8 @@ import WorkerDetail from './pages/WorkerDetail'
 import MyBookings from './pages/MyBookings'
 import WorkerDashboard from './pages/WorkerDashboard'
 import WorkerSetup from './pages/WorkerSetup'
+import Review from './pages/Review'
+import EditProfile from './pages/EditProfile'
 
 function App() {
     return (
@@ -22,6 +24,8 @@ function App() {
                 <Route path="/my-bookings" element={<MyBookings />} />
                 <Route path="/dashboard" element={<WorkerDashboard />} />
                 <Route path="/worker-setup" element={<WorkerSetup />} />
+                <Route path="/review/:bookingId/:workerId" element={<Review />} />  
+                <Route path="/edit-profile" element={<EditProfile />} />
             </Routes>
         </BrowserRouter>
     )

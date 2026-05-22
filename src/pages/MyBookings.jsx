@@ -8,7 +8,7 @@ function MyBookings() {
     useEffect(() => {
         const fetchBookings = async () => {
             try {
-                const res = await API.get(`/customers/${localStorage.getItem("user_id")}/bookings`)    
+                const res = await API.get(`/customers/${localStorage.getItem("user_id")}/bookings`)
                 setBookings(res.data)
             } catch (e) {
                 console.error(e)
@@ -40,8 +40,18 @@ function MyBookings() {
                                     {b.status}
                                 </span>
                             </div>
+                            <p className="text-gray-700 font-medium">👷 {b.worker_name}</p>
+                            <p className="text-gray-500 text-sm">📍 {b.worker_location}</p>
+                            <p className="text-gray-500 text-sm">🛠 {b.worker_skills}</p>
                             <p className="text-gray-500 text-sm">📅 {new Date(b.date).toLocaleDateString()}</p>
                             {b.notes && <p className="text-gray-500 text-sm mt-1">📝 {b.notes}</p>}
+                            {b.status === "completed" && (
+                                <button
+                                    onClick={() => window.location.href = `/review/${b.id}/${b.worker_id}`}
+                                    className="mt-4 bg-yellow-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-yellow-600">
+                                    ⭐ Leave Review
+                                </button>
+                            )}
                         </div>
                     ))}
                 </div>

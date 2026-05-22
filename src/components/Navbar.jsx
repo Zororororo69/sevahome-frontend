@@ -21,7 +21,9 @@ function Navbar() {
                 {name ? (
                     <>
                         <span className="text-blue-200">Hi, {name}!</span>
-                        <Link to="/my-bookings" className="hover:text-blue-200">My Bookings</Link>
+                        {role === "customer" && (
+                            <Link to="/my-bookings" className="hover:text-blue-200">My Bookings</Link>
+                        )}
                         {role === "worker" && (
                             <Link to="/dashboard" className="hover:text-blue-200">Dashboard</Link>
                         )}

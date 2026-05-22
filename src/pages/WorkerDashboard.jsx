@@ -31,8 +31,15 @@ function WorkerDashboard() {
 
     return (
         <div className="max-w-3xl mx-auto px-6 py-10">
-            <h1 className="text-3xl font-bold mb-2">Worker Dashboard</h1>
-            <p className="text-gray-500 mb-8">Manage your incoming bookings</p>
+            <div className="flex justify-between items-center mb-8">
+                <div>
+                    <h1 className="text-3xl font-bold mb-2">Worker Dashboard</h1>
+                    <p className="text-gray-500">Manage your incoming bookings</p>
+                </div>
+                <a href="/edit-profile" className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-700">
+                    ✏️ Edit Profile
+                </a>
+            </div>
             {bookings.length === 0 ? (
                 <p className="text-gray-500">No bookings yet.</p>
             ) : (
